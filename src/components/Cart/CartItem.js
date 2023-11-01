@@ -10,7 +10,7 @@ const CartItem = (props) => {
         <h3>{props.name}</h3>
         <div className={classes.price}>{price}</div>
       </div>
-      <div className={classes.amount}>{props.amount}</div>
+      <div className={classes.amount}>{`x${props.amount}`}</div>
       <div>
         <CartItemButton item={props} />
       </div>

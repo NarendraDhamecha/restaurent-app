@@ -16,7 +16,6 @@ const Cart = (props) => {
             key={item.id}
             id={item.id}
             name={item.name}
-            description={item.description}
             price={item.price}
           />
         );
@@ -27,6 +26,7 @@ const Cart = (props) => {
   const totalAmount = CartCtx.items.reduce((sum, currNum) => {
     return sum + currNum.price * currNum.amount;
   }, 0);
+
 
   return (
     <Modal>
@@ -39,7 +39,7 @@ const Cart = (props) => {
         <button onClick={props.onCloseCart} className={classes["button--alt"]}>
           Close
         </button>
-        <button className={classes.button}>Order</button>
+        {CartCtx.items.length > 0 && <button className={classes.button}>Order</button>}
       </div>
     </Modal>
   );

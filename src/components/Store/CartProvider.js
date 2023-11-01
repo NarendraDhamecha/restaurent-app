@@ -10,9 +10,7 @@ const CartProvider = (props) => {
         return prevItem.id === item.id;
       });
 
-      let existingItem = prevItems[existingIndex];
-
-      if (existingItem) {
+      if (existingIndex !== -1) {
         let updatedItems = [...prevItems];
         updatedItems[existingIndex].amount =
           Number(updatedItems[existingIndex].amount) + Number(item.amount);
@@ -29,9 +27,7 @@ const CartProvider = (props) => {
         return prevItem.id === id;
       });
 
-      let existingItem = prevItems[existingIndex];
-
-      if (existingItem.amount > 1) {
+      if (prevItems[existingIndex].amount > 1) {
         let updatedItems = [...prevItems];
         updatedItems[existingIndex].amount =
           Number(updatedItems[existingIndex].amount) - Number("1");
